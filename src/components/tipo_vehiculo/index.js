@@ -91,6 +91,12 @@ export default class VehicleType extends Component {
 		                    <span className="text">Bus</span>
 		                </div>
 		            </li>
+		            <li className="step-vehicle-body__item">
+		                <div className={ this.isActive( 'BUS' ) } onClick={ this.selectChoise.bind( this, 'BUS' ) }>
+		                    <span className="icon"><i className="cmuj-van"></i></span>
+		                    <span className="text">Pick up</span>
+		                </div>
+		            </li>
 		        </ul>
 		    </div>
 	    )

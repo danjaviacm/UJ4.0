@@ -154,8 +154,10 @@ export default class QueryRegistration extends Component {
                 	<div className="col-xs-12 step-query-registration__success">
                     	<br/>
                     	<a className="btn btn-success" onClick={ this.noPlate.bind( this ) } style={{ color: '#fff' }}>Cotizar vehículo sin placa</a><br/>
-                	</div>
-            	</div>
+
+                        <div className="step-query-registration__terms">Al continuar aceptas nuestros <a href="https://comparamejor.com/co/terminos-y-condiciones/" target="_blank">términos y condiciones</a></div>
+                    </div>
+                </div>
 	            <div style={{ clear: 'both' }}></div>
 	        </section>
     	)

@@ -45,6 +45,26 @@
 		text-align: center;
 	}
 
+	&__terms {
+		text-align: center;
+		margin-top: 10px;
+
+		a {
+			color: #fefefe;
+			text-decoration: underline;
+
+			&:active,
+			&:hover {
+				color: #FBF9C7;
+			}
+
+			&:visited {
+				color: #fefefe;
+			}
+		}
+	}
+
+	// Tablet
 	@media ( max-width: @screen-sm-max ) {
 
 	    &__message {
@@ -70,6 +90,7 @@
 	    }
 	}
 
+	// Phone
 	@media ( max-width: @screen-xs-max ) {
 
 	    &__message {
