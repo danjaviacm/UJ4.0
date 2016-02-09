@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import request from 'reqwest'
 import Ux3Services from '../../services/Ux3Services'
+import InputCompletion from 'react-input-completion'
 import _ from 'lodash'
 import store from 'store2'
 
@@ -18,7 +19,8 @@ export default class VehicleBrand extends Component {
 			alphabeticalList: [],
 			popular_brands: [],
 			showMore: false,
-			vehicle_brand: ''
+			vehicle_brand: '',
+			brandNames: []
 		}
 
 		this.fetchBrands = this.fetchBrands.bind( this )
@@ -76,12 +78,26 @@ export default class VehicleBrand extends Component {
 
 		store.has( 'UJDATA' ) ?
 			this.setState( JSON.parse( store.get( 'UJDATA' ) ), () => this.fetchBrands() ) : this.context.router.push( '/consultar-placa' )
-	
+
 	}
 
 	isActive ( value ) {
 		return `btnuj ${ (( value === this.state.vehicle_brand ) ? 'active': 'default' ) }`
 	}
+
+    selectChoiceDropdown ( e ) {
+
+    	let brands = []
+
+		this.state.brands.map( ( brand, key ) => {
+			brands.push( brand.name )
+		})
+
+        if ( e.target.value.length < 3 || brands.indexOf( e.target.value ) == -1 )
+            return
+        
+        this.setState({ vehicle_brand: e.target.value }, () => this.continue() )
+    }
 
 	selectChoice ( filter ) {
 		this.setState({ vehicle_brand: filter }, () => this.continue() )
@@ -109,12 +125,22 @@ export default class VehicleBrand extends Component {
 
 	render() {
 
+		let autoCompleteBrands = []
+
+		this.state.brands.map( ( brand, key ) => {
+			autoCompleteBrands.push( brand.name )
+		})
+
 		return (
-			<div id="step-vehicle-brand" className="step">
+			<div id="step-vehicle-brand" className="step step-vehicle-brand">
 
 				<header>
 					<h1>¿Cuál es la marca de tu vehículo?</h1>
 				</header>
+
+				<InputCompletion options={ autoCompleteBrands } name="brands_2" onValueChange={ this.selectChoiceDropdown.bind( this ) }>
+                    <input type="text" id="brand" placeholder="Escribe la marca de tu vehículo" className="form-control form-control-small" />
+                </InputCompletion>
 
 				{/* Brand images */}
 				{ ! this.state.showMore ? <div className="brands">
@@ -134,6 +160,7 @@ export default class VehicleBrand extends Component {
 					{ this.state.alphabeticalList.map( ( collection, key ) => {
 						return <div className="letter" key={ key }>
 							<h1 style={{ borderBottom: '1px dotted rgba( 255, 255, 255, .2 )' }}>{ collection.al }</h1>
+
 							<ul className="unstyled-list v-list list-brands__list">
 								
 								{ collection.brands.map( ( brand, key ) => {
