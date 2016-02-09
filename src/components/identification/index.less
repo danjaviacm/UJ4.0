@@ -1,0 +1,65 @@
+.step-identification {
+
+	text-align: center;
+
+	h3 {
+		font-size: 16px;
+	    color: #fff;
+	    font-weight: 300;
+	    font-family: OpenSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		display: inline-block;
+		margin: 7px 10px;
+
+		> div {
+			padding: 25px 37px;
+		    text-align: center;
+		    display: block;
+
+		    .icon {
+		    	display: inline-block;
+				font-size: 70px;
+		    }
+
+		    .text {
+		    	display: block;
+			    text-align: center;
+			    font-weight: 300;
+		    }
+		}
+	}
+
+	&__form {
+		> div:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
+
+    @media ( max-width: @screen-sm-max ) {
+
+    	h3 {
+    		margin-top: 0px!important;
+    		font-weight: 400;
+    	}
+        
+    }
+
+    @media ( max-width: @screen-xs-max ) {
+
+    	h3 {
+    		margin-top: 0px!important;
+    		font-weight: 400;
+    	}
+        
+    }
+}

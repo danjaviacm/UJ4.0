@@ -1,0 +1,72 @@
+.step-vehicle-city {
+
+	text-align: center;
+
+	h2 {
+		font-family: BebasNeueRegular,Helvetica,Arial,sans-serif;
+	    color: #fff;
+	    text-align: center;
+	    margin-top: 70px;
+	    text-shadow: 0 1px 3px rgba(0,0,0,.2);
+	    margin-bottom: 40px;
+	    font-size: 37px;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+    		display: block;
+    		margin: 30px;
+
+    		span {
+
+    			&:hover,
+	    		&:active,
+	    		&.active {
+	    			background: #fff;
+	    			color: #39c;
+    			}
+    		}
+		}
+	}
+
+	&__form {
+		> div:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
+
+    @media ( max-width: @screen-sm-max ) {
+
+    	h2 {
+    		margin-top: 30px;
+    	}
+        
+        li {
+        	margin: 10px 0;
+        }
+        
+    }
+
+    @media ( max-width: @screen-xs-max ) {
+
+    	h2 {
+    		margin-top: 30px;
+    	}
+        
+        li {
+        	margin: 10px 0;
+        }
+        
+    }
+}
+
+#city {
+	border: 2px solid #39c;
+    box-shadow: none;
+}
