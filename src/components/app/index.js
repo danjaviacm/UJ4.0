@@ -46,8 +46,8 @@ export default class App extends Component {
 				<Header />
 
 				<div app="ApplyFormUJV5">
-					<div id="apply-cars-v4">
-						<div className="container">
+					<div id="uj40" className="uj40">
+						<div className="container uj40__container">
 									
 							<Steps />
 
